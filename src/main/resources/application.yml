@@ -2,3 +2,9 @@ server:
   port: 8080
   servlet:
     context-path: /wiki
+spring:
+  datasource:
+    url: jdbc:mysql://42.192.190.139:23336/wiki?characterEncoding=UTF8&autoReconnect=true&serviceTimeZone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: wiki
+    password: wiki
