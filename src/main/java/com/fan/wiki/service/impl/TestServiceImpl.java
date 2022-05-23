@@ -16,6 +16,6 @@ public class TestServiceImpl implements ITestService {
 
     @Override
     public List<Test> list() {
-        return testMapper.list();
+        return testMapper.selectByExample(null);
     }
 }
