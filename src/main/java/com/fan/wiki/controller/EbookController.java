@@ -1,6 +1,7 @@
 package com.fan.wiki.controller;
 
 import com.fan.wiki.entity.Ebook;
+import com.fan.wiki.resp.CommonResp;
 import com.fan.wiki.service.IEbookService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +22,10 @@ public class EbookController {
     private IEbookService ebookService;
 
     @GetMapping("list")
-    public List<Ebook> list() {
-        return ebookService.list();
+    public CommonResp<List<Ebook>> list() {
+        CommonResp<List<Ebook>> resp = new CommonResp<>();
+        List<Ebook> list = ebookService.list();
+        resp.setContent(list);
+        return resp;
     }
 }
