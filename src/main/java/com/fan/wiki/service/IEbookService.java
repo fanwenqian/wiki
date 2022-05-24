@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface IEbookService {
 
-    List<Ebook> list();
+    List<Ebook> list(String name);
 }
