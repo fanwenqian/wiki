@@ -6,6 +6,7 @@ import com.fan.wiki.mapper.EbookMapper;
 import com.fan.wiki.req.EbookReq;
 import com.fan.wiki.resp.EbookResp;
 import com.fan.wiki.service.IEbookService;
+import com.fan.wiki.util.CopyUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
@@ -25,12 +26,12 @@ public class EbookServiceImpl implements IEbookService {
         EbookExample.Criteria criteria = ebookExample.createCriteria();
         criteria.andNameLike("%" + req.getName() + "%");
         List<Ebook> list = ebookMapper.selectByExample(ebookExample);
-        List<EbookResp> respList = new ArrayList<>();
-        for (Ebook ebook : list) {
-            EbookResp ebookResp = new EbookResp();
-            BeanUtils.copyProperties(ebook,ebookResp);
-            respList.add(ebookResp);
-        }
-        return respList;
+        //        List<EbookResp> respList = new ArrayList<>();
+        //        for (Ebook ebook : list) {
+        //            EbookResp ebookResp = new EbookResp();
+        //            BeanUtils.copyProperties(ebook,ebookResp);
+        //            respList.add(ebookResp);
+        //        }
+        return CopyUtil.copyList(list, EbookResp.class);
     }
 }
