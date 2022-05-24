@@ -42,7 +42,7 @@ public class CopyUtil {
      * @param clazz 返回List中存储的实例类型
      * @return 实例List
      */
-    public static <T> List<T> copy(List<T> source,Class<T> clazz) {
+    public static <T> List<T> copyList(List<?> source,Class<T> clazz) {
         List<T> target = new ArrayList<>();
         if (!CollectionUtils.isEmpty(source)) {
             for (Object o : source) {
