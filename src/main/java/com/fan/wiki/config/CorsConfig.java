@@ -7,6 +7,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * 跨域请求处理
+ *
+ * @author fan.wenqian
+ * @date 2022-06-10 11:12
  */
 @Configuration
 public class CorsConfig implements WebMvcConfigurer {
@@ -17,6 +20,7 @@ public class CorsConfig implements WebMvcConfigurer {
                 .allowedOriginPatterns("*")
                 .allowedMethods(CorsConfiguration.ALL)
                 .allowCredentials(true)
-                .maxAge(3600);   //一小时内不再预检（发送OPTIONS请求）
+                //一小时内不再预检（发送OPTIONS请求）
+                .maxAge(3600);
     }
 }
